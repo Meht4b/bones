@@ -17,16 +17,18 @@ while True:
             break
         
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_DOWN:
+            if event.key == pygame.K_UP:
 
                 ch +=1
                 if ch == len(bone.bones):
                     ch =0
-            if event.key == pygame.K_UP:
+            if event.key == pygame.K_DOWN:
 
+                
                 ch -=1
-                if ch == 0:
-                    ch = len(bone.bones)
+                if ch <0:
+                    ch = len(bone.bones)-1
+                print(ch)
 
         if event.type == pygame.MOUSEWHEEL:
             bone.bones[ch].rotate(10*event.y)
