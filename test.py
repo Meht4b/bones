@@ -1,5 +1,4 @@
 from classes import *
-from vector import equationroots
 
 pygame.init()
 

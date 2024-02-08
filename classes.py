@@ -8,20 +8,24 @@ class bone:
 
     bones = []
     
-    def __init__(self,length,rotation,head=vector(0,0),parent=None):
+    def __init__(self,length,rotation,head=vector(0,0),parent=None,ik=False):
     
         rotation = math.radians(rotation)
+
 
         self.head = head
         self.parent = parent
         self.rotation = rotation
         self.angle = rotation
+        self.ikFlag = ik
 
         if parent!=None:
             
             print(bone.bones[parent].angle)
             self.angle = rotation+bone.bones[parent].angle
             self.head = bone.bones[parent].tail
+
+            
 
         self.length = length
         self.rotation = rotation
@@ -36,19 +40,25 @@ class bone:
         self.rotation = angle
         self.angle = angle
 
-    def rotateAbs(self,angle):
+    def rotateRads(self,angle):
 
         self.tail = self.head + vector(self.length*math.cos(angle),self.length*math.sin(angle))
         self.rotation = angle
         self.angle = angle
 
+    def ik(self):
+        pass
+
     def update(self,win):
         
         if self.parent!=None:
             self.head = bone.bones[self.parent].tail
-            self.angle = bone.bones[self.parent].angle + self.rotation
             self.tail = self.head + vector(self.length*math.cos(self.angle),self.length*math.sin(self.angle))
-            
+            if self.ikFlag:
+                self.ik()
+            else:
+                self.angle = bone.bones[self.parent].angle + self.rotation
+
 
         self.display(win)
 

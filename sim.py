@@ -4,10 +4,10 @@ pygame.init()
 
 window = pygame.display.set_mode((1000,1000))
 
-a = bone(50,60,head=vector(0,0))
-b = bone(50,0,parent=0)
+a = bone(100,45,head=vector(0,0))
+b = bone(100,0,parent=0,ik=True)
 
-
+b.rotate(90)
 
 ch = 0
 
