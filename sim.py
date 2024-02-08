@@ -4,10 +4,9 @@ pygame.init()
 
 window = pygame.display.set_mode((1000,1000))
 
-a = bone(100,45,head=vector(0,0))
+a = bone(100,45,head=vector(500,500),ik=True)
 b = bone(100,0,parent=0,ik=True)
 
-b.rotate(90)
 
 ch = 0
 
@@ -32,7 +31,7 @@ while True:
                 print(ch)
 
         if event.type == pygame.MOUSEWHEEL:
-            bone.bones[ch].rotate(10*event.y)
+            bone.bones[ch].rotateLocalAdditive(0.1*event.y)
 
             
     window.fill((0,0,0))
