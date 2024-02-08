@@ -59,5 +59,6 @@ class bone:
 
     def display(self,win):
         pygame.draw.line(win,(255,255,255),self.head.tupAdj(),self.tail.tupAdj())
-    
+        pygame.draw.rect(win,(255,0,0),(self.head.x-5,self.head.y-5,10,10))
+        pygame.draw.rect(win,(255,0,0),(self.tail.x-5,self.tail.y-5,10,10))
     
