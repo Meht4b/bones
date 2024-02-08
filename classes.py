@@ -36,6 +36,12 @@ class bone:
         self.rotation = angle
         self.angle = angle
 
+    def rotateAbs(self,angle):
+
+        self.tail = self.head + vector(self.length*math.cos(angle),self.length*math.sin(angle))
+        self.rotation = angle
+        self.angle = angle
+
     def update(self,win):
         
         if self.parent!=None:

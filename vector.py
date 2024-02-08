@@ -2,7 +2,8 @@ import math
 import pygame
 
 def coord(y):
-    return pygame.display.get_surface().get_size()[1]-y
+    #return pygame.display.get_surface().get_size()[1]-y
+    return y
 
 class vector:
     
@@ -39,3 +40,28 @@ class vector:
     def tupAdj(self):
         
         return (self.x,coord(self.y))
+    
+    
+def equationroots( a, b, c): 
+ 
+    # calculating discriminant using formula
+    dis = b * b - 4 * a * c 
+    sqrt_val = math.sqrt(abs(dis)) 
+    return (-b + sqrt_val)/(2 * a)
+     
+
+'''
+    # checking condition for discriminant
+    if dis > 0: 
+        print("real and different roots") 
+        print((-b + sqrt_val)/(2 * a)) 
+        print((-b - sqrt_val)/(2 * a)) 
+     
+    elif dis == 0: 
+        print("real and same roots") 
+        print(-b / (2 * a)) 
+     
+    # when discriminant is less than 0
+    else:
+        print("Complex Roots") 
+'''
