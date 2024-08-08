@@ -3,10 +3,10 @@ from vector import equationroots
 
 pygame.init()
 
-window = pygame.display.set_mode((1000,1000))
+window = pygame.display.set_mode((500,500))
 
-a = bone(500,60,head=vector(100,100))
-b = bone(500,0,parent=0)
+a = bone(150,60,head=vector(0,0))
+b = bone(150,0,parent=0)
 
 
 
